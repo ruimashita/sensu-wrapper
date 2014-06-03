@@ -1,0 +1,23 @@
+{
+  "name": "sensu-server",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+      "sensu": {
+          "use_embedded_ruby": true,
+          "dashboard": {
+              "port": 8080
+          },
+          "rabbitmq": {
+
+          }
+      }
+
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[sensu-wrapper::server]",
+      "recipe[sensu-wrapper::server-handlers]",
+      "recipe[sensu-wrapper::server-checks]"
+  ]
+}

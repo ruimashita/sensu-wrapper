@@ -1,0 +1,5 @@
+# osx用のkitche file
+---
+driver:
+  socket: tcp://localhost:4243
+

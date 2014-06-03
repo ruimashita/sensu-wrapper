@@ -1,0 +1,22 @@
+{
+  "name": "sensu-client",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+      "sensu": {
+          "use_embedded_ruby": true,
+          "rabbitmq": {
+              "host": "192.168.33.11"
+          },
+          "api": {
+              "host": "192.168.33.11"
+          }
+      }
+
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[sensu-wrapper::client]",
+      "recipe[sensu-wrapper::client-plugins]"
+  ]
+}

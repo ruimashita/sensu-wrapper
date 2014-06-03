@@ -1,0 +1,28 @@
+---
+driver:
+  # docker
+  name: docker
+
+driver_config:
+  use_sudo: false
+  require_chef_omnibus: false
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver_config:
+      image: ruimashita/ubuntu-14.04-chef #installed chef docker image
+      platform: ubuntu
+
+suites:
+  - name: server
+    run_list:
+      - role[sensu-server]
+    attributes:
+
+  - name: client
+    run_list:
+      - role[sensu-client]
+    attributes:
